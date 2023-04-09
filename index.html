@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rowser</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <input id = "maxRows" type="text" class="max-rows" value="1">
+        <input id = "currentRow" type="text" disabled class="max-rows current-row" value="5">
+
+        <div class="rows" id="rowsContainer">
+            <div class="row row-done">
+                <div class="num">1</div>
+            </div>
+            
+            <div class="row row-active">
+                <div class="num num-active">2</div>
+            </div>
+            
+            <div class="row row-any">
+                <div class="num">3</div>
+            </div>
+
+            <div class="row row-any">
+                <div class="num">4</div>
+            </div>
+
+        </div>
+
+        <div class="action">
+            <button>Previous</button>
+            <button>Next</button>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
