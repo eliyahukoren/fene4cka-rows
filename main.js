@@ -57,39 +57,21 @@ class Rowser {
 
     numRowDiv = (num, active = false) => {
         let div = document.createElement('div');
-        let classNames = ['num'];
-        
-        if( active )
-        classNames.push('num-active');
-        
+
         div.id = `num_${num}`;
         div.innerHTML = `${num}`;
-        div.className = classNames.join(' ');
+        div.className = 'num';
         
         return div;
     }    
 
     rowDiv = (index, active = false, done = false) => {
         let div = document.createElement('div');    
-        let classNames = ['row'];
-        
-        if (active) {
-            classNames.push('row-active');
-        }
-        
-        if( done){
-            classNames.push('row-done');
-        }
-        
-        if( !active && !done){
-            classNames.push('row-any');
-        }
         
         div.id = `row_${index}`;
-        div.className = classNames.join(' ');
+        div.className = 'row';
     
-        return div;
-    
+        return div;    
     }    
 
     move(direction = this.FORWARD){
