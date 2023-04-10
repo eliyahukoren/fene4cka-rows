@@ -5,6 +5,7 @@ class Rowser {
     LAST_CURRENT = 'lastCurrent';
     DEFAULT_MAX = 0;
     DEFAULT_CURRENT = 0;
+    MAX_ROWS_ON_PAGE = 12;
 
     constructor(
         rootDivElement,
@@ -100,7 +101,7 @@ class Rowser {
         this.show();
     }
 
-    show(){
+    build(){
         const rows = document.querySelectorAll('.row');
 
         for(let div of rows){
@@ -130,18 +131,30 @@ class Rowser {
         localStorage.setItem(this.LAST_MAX, this.maxRows);
         localStorage.setItem(this.LAST_CURRENT, 1);
         this.rootDivElement.innerHTML = '';
-        this.start();
+        this.show();
 
         return this;
     }
 
-    start(){
+    calcPage(current, max){
+        for(let i = 0; i<=100; i+=12){
+            if(current >= 1 + i && current <= 12 + i){
+                return { start: i + 1, end: Math.min(12 + i, max)};
+            }
+        }
+    }
+
+    show(){
         let lastMax = parseInt(localStorage.getItem(this.LAST_MAX)) || this.DEFAULT_MAX
         let lastCurrent = parseInt(localStorage.getItem(this.LAST_CURRENT)) || this.DEFAULT_CURRENT;
-
+        
         if (lastMax <= 0) return this;
 
-        for (let i = 1; i <= lastMax; i++) {
+        const {start, end} = this.calcPage(lastCurrent, lastMax);
+
+        this.rootDivElement.innerHTML = '';
+
+        for (let i = start; i <= end; i++) {
             let rowDiv = this.rowDiv(i, i === lastCurrent);
             let numDiv = this.numRowDiv(i);
 
@@ -150,7 +163,7 @@ class Rowser {
         }
 
         this.currentRow = lastCurrent;
-        this.show();
+        this.build();
 
         return this;
     }
@@ -160,7 +173,7 @@ const rowser = new Rowser(
     document.getElementById('rowsContainer'),
     document.getElementById('maxRows'),
     document.getElementById('currentRow')
-).start();
+).show();
 
 document.addEventListener('keypress', (event) => {
     if( event.code === 'Space' || event.code === 'Enter'){
@@ -179,3 +192,5 @@ document.getElementById('previous').onclick = () => {
 document.getElementById('reset').onclick = () => {
     rowser.restart();
 };
+
+
