@@ -55,7 +55,7 @@ class Rowser {
         return row;
     }
 
-    numRowDiv = (num, active = false) => {
+    numRowDiv = (num) => {
         let div = document.createElement('div');
 
         div.id = `num_${num}`;
@@ -65,7 +65,7 @@ class Rowser {
         return div;
     }    
 
-    rowDiv = (index, active = false, done = false) => {
+    rowDiv = (index) => {
         let div = document.createElement('div');    
         
         div.id = `row_${index}`;
