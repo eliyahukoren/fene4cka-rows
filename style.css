@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapi/com/css2/family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
     margin: 0;
@@ -16,7 +16,8 @@ body {
 }
 
 button{
-    width: 100px;
+    /* width: 100px; */
+    padding: 5px 10px;
     height: 30px;
     border: none;
     border-radius: 6px;
@@ -26,7 +27,7 @@ button{
 
 .action{
     display: flex;
-    justify-content:space-between;
+    justify-content:space-around;
     align-items:center;
 }
 
@@ -81,7 +82,6 @@ button{
     width: 22px;
     height: 22px;
     text-align: center;
-    padding-top: 2px;
 }
 
 .num-active{

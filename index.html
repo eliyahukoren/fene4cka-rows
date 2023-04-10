@@ -9,31 +9,16 @@
 </head>
 <body>
     <div class="container">
-        <input id = "maxRows" type="text" class="max-rows" value="1">
-        <input id = "currentRow" type="text" disabled class="max-rows current-row" value="5">
+        <input id = "maxRows" type="text" class="max-rows" value="0">
+        <input id = "currentRow" type="text" disabled class="max-rows current-row" value="0">
 
         <div class="rows" id="rowsContainer">
-            <div class="row row-done">
-                <div class="num">1</div>
-            </div>
-            
-            <div class="row row-active">
-                <div class="num num-active">2</div>
-            </div>
-            
-            <div class="row row-any">
-                <div class="num">3</div>
-            </div>
-
-            <div class="row row-any">
-                <div class="num">4</div>
-            </div>
-
         </div>
 
         <div class="action">
-            <button>Previous</button>
-            <button>Next</button>
+            <button id = "previous">Previous</button>
+            <button id="reset">Set</button>
+            <button id = "next">Next</button>
         </div>
     </div>
     <script src="./main.js"></script>
